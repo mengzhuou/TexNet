@@ -1,10 +1,12 @@
 import axios from "axios";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const LOCAL_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const TELNYX_BACKEND_URL = process.env.REACT_APP_TELNYX_APP_URL;
+
 
 const getRecords = async () => {
     try {
-        const res = await axios.get(`${BACKEND_URL}/records`);
+        const res = await axios.get(`${LOCAL_BACKEND_URL}/records`);
         return res.data;
     } catch (error) {
         console.error("Error fetching records:", error);
@@ -31,7 +33,7 @@ const updateRecord = async (recordId, data) => {
 
     try {
         // Sending a PUT request to the backend to update the record
-        const res = await axios.put(`${BACKEND_URL}/records/${recordId}`, data, {
+        const res = await axios.put(`${LOCAL_BACKEND_URL}/records/${recordId}`, data, {
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -63,7 +65,7 @@ const updateDraft = async (draftId, data) => {
 
     try {
         // Sending a PUT request to the backend to update the draft
-        const res = await axios.put(`${BACKEND_URL}/records/${draftId}`, data, {
+        const res = await axios.put(`${LOCAL_BACKEND_URL}/records/${draftId}`, data, {
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -93,7 +95,7 @@ const createRecord = async (data) => {
     }
 
     try {
-        const res = await axios.post(`${BACKEND_URL}/records`, data, {
+        const res = await axios.post(`${LOCAL_BACKEND_URL}/records`, data, {
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -107,7 +109,7 @@ const createRecord = async (data) => {
 
 const getDrafts = async () => {
     try {
-        const res = await axios.get(`${BACKEND_URL}/records/drafts`);
+        const res = await axios.get(`${LOCAL_BACKEND_URL}/records/drafts`);
         return res.data;
     } catch (error) {
         console.error('Error fetching drafts:', error);
@@ -117,7 +119,7 @@ const getDrafts = async () => {
 
 const deleteDraft = async (draftId) => {
     try {
-        await axios.delete(`${BACKEND_URL}/records/${draftId}`);
+        await axios.delete(`${LOCAL_BACKEND_URL}/records/${draftId}`);
     } catch (error) {
         console.error('Error deleting draft:', error);
         throw error;
@@ -126,7 +128,7 @@ const deleteDraft = async (draftId) => {
 
 const deleteRecord = async (recordId) => {
     try {
-        await axios.delete(`${BACKEND_URL}/records/${recordId}`);
+        await axios.delete(`${LOCAL_BACKEND_URL}/records/${recordId}`);
     } catch (error) {
         console.error('Error deleting record:', error);
         throw error;
@@ -135,15 +137,43 @@ const deleteRecord = async (recordId) => {
 
 const getAccessCodes = async () => {
     try {
-        const res = await axios.get(`${BACKEND_URL}/accesscodes`);
+        const res = await axios.get(`${LOCAL_BACKEND_URL}/accesscodes`);
         return res.data;
-    } catch (error) {
+    } catch (error) { 
         console.error("Error fetching records:", error);
         throw error; 
     }
 };
 
+const getOwnedPhoneNumbers = async () => {
+    try {
+        const res = await axios.get(`${TELNYX_BACKEND_URL}/phone_numbers`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${process.env.REACT_APP_TELNYX_API_KEY}`,
+            },
+        });
+        return res.data;
+    } catch (error) {
+        console.error("Error fetching owned phone numbers:", error);
+        throw error;
+    }
+};
+
+const getAvailablePhoneNumbers = async (filters = {}) => {
+    const res = await axios.get(`${TELNYX_BACKEND_URL}/available_phone_numbers`, {
+        params: filters,
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${process.env.REACT_APP_TELNYX_API_KEY}`,
+        },
+    });
+    return res.data;
+};
+
 export {
+    getOwnedPhoneNumbers,
+    getAvailablePhoneNumbers,
     getRecords,
     createRecord,
     getAccessCodes,
