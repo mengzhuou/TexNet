@@ -1,18 +1,35 @@
-.App {
-  text-align: center;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.content-layout {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex: 1;
+  height: 90%; /* 10% reserved for top bar */
 }
 
-.body {
-  background-color: gray;
+.main-content {
+  width: 80%; /* 20% reserved for left nav */
+  height: 100%;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+/* Navbar dimensions */
+.topNavBar {
+  height: 10%;
+  width: 100%;
+  background-color: #CB997E;
+}
+
+.leftNavBar {
+  width: 20%;
+  height: 100%;
+  background-color: #CB997E;
+}
+
+.left-section {
+  width: 10%;
+}
+
+.right-section {
+  width: 90%;
+  padding-top: 10%;
 }

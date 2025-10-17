@@ -1,4 +1,4 @@
-.navBar {
+.navBarTop {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,7 +15,7 @@
     text-decoration: none;
     font-size: 28px;
     font-weight: bold;
-    margin: 3px 0px 3px 5%;
+    margin: 3px 0px 3px 10%;
     color: #FFFFFF;
     width: 20%;
 }

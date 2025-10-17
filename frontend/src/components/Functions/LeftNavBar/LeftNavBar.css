@@ -1,0 +1,47 @@
+.sideNavBar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: #CB997E;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding-top: 20px;
+    z-index: 3;
+}
+
+.sideNavList {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.sideNavItem {
+    width: 100%;
+}
+
+.sideNavButton {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 12px 20px;
+    font-size: 18px;
+    color: #FFFFFF;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.sideNavButton:hover {
+    background-color: #b07b63;
+}
+
+.sideNavButton:active {
+    background-color: #a06d56;
+}

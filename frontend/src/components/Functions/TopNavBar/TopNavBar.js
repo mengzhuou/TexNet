@@ -58,32 +58,14 @@ class TopNavBar extends Component {
     render() {
         if (window.location.pathname === "/") {
             return (
-                <div className="navBar">
+                <div className="navBarTop">
                 </div>
             );
         }
         return (
-            <div className="navBar">
+            <div className="navBarTop">
                 <div className="navBar-left">
                     <NavButton className="navTitle" path="/MainPage" text="TEXNET" />
-                </div>
-
-                <div className="navBar-right">
-                    <ul className="nav-list">
-                        <li><NavButton className="nav-button" path="/draft" text="Draft" /></li>
-                        <li><NavButton className="nav-button" path="/create-client" text="Create Client" /></li>
-                        <li><ExportButton /></li>
-                    </ul>
-                    <div ref={this.iconRef} className="dropdownIcon" onClick={this.toggleDropdown}>
-                        &#9776;
-                    </div>
-                    {this.state.isDroppedDown ? (
-                    <ul ref={this.menuRef} className={`dropdown-container ${this.state.animationClass}`}>
-                        <li><NavButton className="dropdown-content" path="/draft" text="Draft" /></li>
-                        <li><NavButton className="dropdown-content" path="/create-client" text="Create Client" /></li>
-                        <li><ExportButton /></li>
-                    </ul>
-                    ) : null}
                 </div>
             </div>
         );
