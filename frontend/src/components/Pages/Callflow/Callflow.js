@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import { getOwnedPhoneNumbers } from "../../../connector.js";
-import ClientSearch from "../../ClientSearch";
+import UniversalSearch from "../../UniversalSearch.js";
 import "./Callflow.css";
 
 class Callflow extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            allPhoneNumbers: [],    // all owned numbers (raw)
-            phoneNumbers: [],       // filtered owned numbers
-            availableNumbers: [],   // available Telnyx numbers
+            allPhoneNumbers: [],
+            phoneNumbers: [],
             searchTerm: ""
         };
     }
@@ -30,8 +29,6 @@ class Callflow extends Component {
 
     handleSearch = async (searchTerm) => {
         this.setState({ searchTerm });
-
-        // Optional: re-fetch from backend each time user types (latest list)
         await this.fetchOwnedNumbers();
 
         const { allPhoneNumbers } = this.state;
@@ -42,38 +39,47 @@ class Callflow extends Component {
     };
 
     render() {
-        const { phoneNumbers, availableNumbers } = this.state;
+        const { phoneNumbers } = this.state;
 
         return (
             <div className="callflow-container">
                 <div className="search-section">
-                    <ClientSearch onSearch={this.handleSearch} />
+                    <UniversalSearch onSearch={this.handleSearch} />
                 </div>
 
-                <h2>📞 Telnyx Callflow Dashboard</h2>
+                <h2>Callflow</h2>
 
                 <div className="table-section">
-                    <h3>📱 Owned Phone Numbers</h3>
-                    {phoneNumbers.length === 0 ? (
-                        <p>No owned phone numbers found.</p>
-                    ) : (
-                        <table className="number-table">
-                            <thead>
+                    <table className="number-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Phone Number</th>
+                                <th>Name</th>
+                                <th>Press Key</th>
+                                <th>Assign To</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {phoneNumbers.length === 0 ? (
                                 <tr>
-                                    <th>Phone Number</th>
-                                    <th>Record Type</th>
+                                    <td colSpan="5" style={{ textAlign: "center" }}>
+                                        No data found.
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                {phoneNumbers.map((num, index) => (
+                            ) : (
+                                phoneNumbers.map((num, index) => (
                                     <tr key={index}>
+                                        <td>{index + 1}</td>
                                         <td>{num.phone_number}</td>
-                                        <td>{num.record_type}</td>
+                                        <td>{num.connection_name || ""}</td>
+                                        <td>{num.external_pin || ""}</td>
+                                        <td>{num.messaging_profile_name || ""}</td>
                                     </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    )}
+                                ))
+                            )}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         );
