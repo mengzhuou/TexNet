@@ -1,19 +1,64 @@
 @use "../../../common/css/index.scss" as *;
 
-.mainPageBody {
-    height: 100vh;
-}
-
-.mainPageContainer {
-    @extend %bg-ffffff;
-    @extend %pad-24;
-    width: 100vw;
-    height: 100vh;
-    border-radius: 0.5rem;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
 .record-table-section {
     @extend %mar-t-24;
     width: 100%;   
 }
+
+.mainPageBody {
+    height: 90vh;
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #f8f9fb;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+.mainPageContainer {
+    @extend %bg-ffffff;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+    padding: 30px 40px;
+    text-align: center;
+}
+
+.pageTitle {
+    font-size: 22px;
+    color: #2c3e50;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.balanceSection {
+    margin-bottom: 40px;
+}
+
+.balanceTitle {
+    font-size: 20px;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.balanceBox {
+    display: inline-block;
+    font-size: 32px;
+    font-weight: 600;
+    color: #00a3ff;
+    border: 2px solid #ccc;
+    padding: 20px 60px;
+    border-radius: 6px;
+    background-color: #ffffff;
+}
+
+.chartSection {
+    margin-top: 30px;
+}
+
+.chartTitle {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 20px;
+}
+  

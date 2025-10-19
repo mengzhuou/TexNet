@@ -13,6 +13,7 @@ class LeftNavBar extends Component {
                 <ul className="sideNavList">
                     <li className="sideNavItem">
                         <NavButton className="sideNavButton" path="/callflow" text="Callflow" />
+                        <NavButton className="sideNavButton" path="/profile" text="Profile" />
                     </li>
                 </ul>
             </div>
