@@ -11,14 +11,12 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    background-color: #f8f9fb;
     font-family: "Segoe UI", Arial, sans-serif;
 }
 .mainPageContainer {
     @extend %bg-ffffff;
     width: 100%;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     margin-top: 40px;
     padding: 30px 40px;
     text-align: center;
@@ -26,9 +24,11 @@
 
 .pageTitle {
     font-size: 22px;
-    color: #2c3e50;
+    color: hsl(182, 53%, 53%);
     text-align: left;
     margin-bottom: 20px;
+    margin-top: -150px;
+    margin-left: -100px;
 }
 
 .balanceSection {
@@ -36,19 +36,19 @@
 }
 
 .balanceTitle {
-    font-size: 20px;
-    color: #444;
+    font-size: 28px;
+    color: #8d8787;
     margin-bottom: 15px;
 }
 
 .balanceBox {
     display: inline-block;
     font-size: 32px;
-    font-weight: 600;
-    color: #00a3ff;
+    font-weight: 6000;
+    color: hsl(182, 53%, 53%);
     border: 2px solid #ccc;
-    padding: 20px 60px;
-    border-radius: 6px;
+    padding: 20px 100px;
+    // border-radius: 6px;
     background-color: #ffffff;
 }
 
@@ -57,8 +57,8 @@
 }
 
 .chartTitle {
-    font-size: 18px;
-    color: #444;
+    font-size: 28px;
+    color: #8d8787;
     margin-bottom: 20px;
 }
   
