@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withFuncProps } from "../../withFuncProps";
-import "./MainPage.css";
+import styles from "./MainPage.module.scss";
 import { useNavigate } from "react-router-dom";
 import Callflow from "../Callflow/Callflow";
 
@@ -15,8 +15,8 @@ export function withNavigation(Component) {
 class MainPage extends Component {
     render() {
         return (
-            <div className="main-page-body">
-                <div className="main-page-container">
+            <div className={styles.mainPageBody}>
+                <div className={styles.mainPageContainer}>
                     <h1>📊 Main Page Dashboard</h1>
                     <Callflow />  {/* 👈 Integrated Callflow component */}
                 </div>
