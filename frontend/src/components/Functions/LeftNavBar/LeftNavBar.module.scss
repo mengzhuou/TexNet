@@ -4,44 +4,45 @@
     align-items: flex-start;
     background-color: #CB997E;
     position: fixed;
-    top: 50px;
+    top: 3.125rem;       
     left: 0;
     height: 100%;
-    padding-top: 20px;
+    padding-top: 1.25rem; 
     z-index: 3;
-}
-
-.sideNavList {
+  }
+  
+  .sideNavList {
     display: flex;
     flex-direction: column;
     list-style: none;
     padding: 0;
     margin: 0;
     width: 100%;
-}
-
-.sideNavItem {
+  }
+  
+  .sideNavItem {
     width: 100%;
-}
-
-.sideNavButton {
+  }
+  
+  .sideNavButton {
     display: block;
     width: 100%;
     text-align: left;
-    padding: 20px 40px;
-    font-size: 20px;
+    padding: 1.25rem 2.5rem; 
+    font-size: 1.25rem;      
     color: #FFFFFF;
     background-color: transparent;
     border: none;
     cursor: pointer;
     text-decoration: none;
     transition: background-color 0.3s;
-}
-
-.sideNavButton:hover {
+  }
+  
+  .sideNavButton:hover {
     background-color: #b07b63;
-}
-
-.sideNavButton:active {
+  }
+  
+  .sideNavButton:active {
     background-color: #a06d56;
-}
+  }
+  

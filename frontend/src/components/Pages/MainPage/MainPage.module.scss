@@ -16,8 +16,6 @@
 .mainPageContainer {
     @extend %bg-ffffff;
     width: 100%;
-    border-radius: 8px;
-    margin-top: 40px;
     padding: 30px 40px;
     text-align: center;
 }
@@ -27,8 +25,6 @@
     color: hsl(182, 53%, 53%);
     text-align: left;
     margin-bottom: 20px;
-    margin-top: -150px;
-    margin-left: -100px;
 }
 
 .balanceSection {
@@ -48,8 +44,7 @@
     color: hsl(182, 53%, 53%);
     border: 2px solid #ccc;
     padding: 20px 100px;
-    // border-radius: 6px;
-    background-color: #ffffff;
+    @extend %bg-ffffff;
 }
 
 .chartSection {
