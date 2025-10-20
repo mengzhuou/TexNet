@@ -1,7 +1,6 @@
 import axios from "axios";
 
 const LOCAL_BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const TELNYX_BACKEND_URL = process.env.REACT_APP_TELNYX_APP_URL;
 
 
 const getRecords = async () => {
@@ -147,12 +146,7 @@ const getAccessCodes = async () => {
 
 const getOwnedPhoneNumbers = async () => {
     try {
-        const res = await axios.get(`${TELNYX_BACKEND_URL}/phone_numbers`, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${process.env.REACT_APP_TELNYX_API_KEY}`,
-            },
-        });
+        const res = await axios.get(`${LOCAL_BACKEND_URL}/phone/phone_numbers`);
         return res.data;
     } catch (error) {
         console.error("Error fetching owned phone numbers:", error);
@@ -161,19 +155,26 @@ const getOwnedPhoneNumbers = async () => {
 };
 
 const getAvailablePhoneNumbers = async (filters = {}) => {
-    const res = await axios.get(`${TELNYX_BACKEND_URL}/available_phone_numbers`, {
-        params: filters,
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${process.env.REACT_APP_TELNYX_API_KEY}`,
-        },
-    });
+    const res = await axios.get(`${LOCAL_BACKEND_URL}/phone/available_phone_numbers`);
     return res.data;
+};
+
+const getAccountBalance = async () => {
+    try {
+        const res = await axios.get(`${LOCAL_BACKEND_URL}/phone/balance`);
+        console.log("res: ", res)
+        console.log("res.data: ", res.data)
+        return res.data;
+    } catch (error) {
+        console.error("Error fetching owned phone numbers:", error);
+        throw error;
+    }
 };
 
 export {
     getOwnedPhoneNumbers,
     getAvailablePhoneNumbers,
+    getAccountBalance,
     getRecords,
     createRecord,
     getAccessCodes,

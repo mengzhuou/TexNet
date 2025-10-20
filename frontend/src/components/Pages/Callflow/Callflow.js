@@ -7,34 +7,39 @@ class Callflow extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            allPhoneNumbers: [],
-            phoneNumbers: [],
+            allPhoneNumbers: JSON.parse(localStorage.getItem("telnyx_owned_numbers")) || [],
+            phoneNumbers: JSON.parse(localStorage.getItem("telnyx_owned_numbers")) || [],
             searchTerm: ""
         };
     }
 
     async componentDidMount() {
-        await this.fetchOwnedNumbers();
+        if (!localStorage.getItem("telnyx_owned_numbers")) {
+            await this.fetchOwnedNumbers();
+        }
     }
 
     fetchOwnedNumbers = async () => {
         try {
             const response = await getOwnedPhoneNumbers();
             const numbers = response.data || [];
+
             this.setState({ allPhoneNumbers: numbers, phoneNumbers: numbers });
+            localStorage.setItem("telnyx_owned_numbers", JSON.stringify(numbers));
+
         } catch (error) {
             console.error("Error fetching owned Telnyx numbers:", error);
         }
     };
 
-    handleSearch = async (searchTerm) => {
+    handleSearch = (searchTerm) => {
         this.setState({ searchTerm });
-        await this.fetchOwnedNumbers();
 
         const { allPhoneNumbers } = this.state;
         const filtered = allPhoneNumbers.filter(num =>
-            num.phone_number.toLowerCase().includes(searchTerm.toLowerCase())
+            num.phone_number?.toLowerCase().includes(searchTerm.toLowerCase())
         );
+
         this.setState({ phoneNumbers: filtered });
     };
 
@@ -44,7 +49,7 @@ class Callflow extends Component {
         return (
             <div className="callflow-container">
                 <div className="search-section">
-                    <UniversalSearch onSearch={this.handleSearch} />
+                    <UniversalSearch onSearch={this.handleSearch} placeholder="Search phone number..." />
                 </div>
 
                 <h2>Callflow</h2>
@@ -63,9 +68,7 @@ class Callflow extends Component {
                         <tbody>
                             {phoneNumbers.length === 0 ? (
                                 <tr>
-                                    <td colSpan="5" style={{ textAlign: "center" }}>
-                                        No data found.
-                                    </td>
+                                    <td colSpan="5" style={{ textAlign: "center" }}>No data found.</td>
                                 </tr>
                             ) : (
                                 phoneNumbers.map((num, index) => (
