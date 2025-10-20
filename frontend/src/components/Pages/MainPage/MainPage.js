@@ -11,6 +11,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { getAccountBalance } from "../../../connector.js";
 
 export function withNavigation(Component) {
   return function WrappedComponent(props) {
@@ -20,8 +21,41 @@ export function withNavigation(Component) {
 }
 
 class MainPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            balance: localStorage.getItem("telnyx_balance") || null,
+        };
+    }
+
+    async componentDidMount() {
+        if (localStorage.getItem("telnyx_balance")) {
+          console.log("Loaded balance from cache");
+          return;
+        }
+      
+        try {
+          const balanceData = await getAccountBalance();
+          
+          const balance = balanceData?.balance;
+          
+          console.log("API raw response:", balance);
+          if (balance !== undefined && balance !== null) {
+            console.log("Fetched balance from API:", balance);
+            this.setState({ balance });
+            localStorage.setItem("telnyx_balance", balance);
+          } else {
+            console.warn("Balance not found in API response");
+            this.setState({ balance: 0 });
+          }
+        } catch (error) {
+          console.error("Failed to load balance:", error);
+          this.setState({ balance: 0 });
+        }
+      }
+      
   render() {
-    const balance = 1000.0;
+    const { balance } = this.state;
     const data = [
       { day: "1", messages: 8000 },
       { day: "2", messages: 7500 },
@@ -39,7 +73,7 @@ class MainPage extends Component {
 
             <div className={styles.balanceSection}>
                 <h3 className={styles.balanceTitle}>Current Balance</h3>
-                <div className={styles.balanceBox}>${balance.toFixed(2)}</div>
+                <div className={styles.balanceBox}>{balance === null ? "Loading balance..." : `$${balance}`}</div>
             </div>
 
             <div className={styles.chartSection}>
