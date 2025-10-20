@@ -22,10 +22,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use('/', express.static(path.join(__dirname, '/public')));
 app.use("/", require("./routes/root"));
-app.use("/students", require("./routes/studentsRoutes"));
-app.use("/records", require("./routes/recordRoutes"));
 app.use("/phone", require("./routes/phoneRoutes"));
-app.use("/accesscodes", require("./routes/accessCodeRoutes"));
 app.use(errorHandler);
 
 mongoose.connection.once("open", () => {
