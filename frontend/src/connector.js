@@ -171,10 +171,35 @@ const getAccountBalance = async () => {
     }
 };
 
+const createNewPhoneNumber = async (phoneData) => {
+    try {
+        const res = await axios.post(
+            `${LOCAL_BACKEND_URL}/phone/db/create_phone_number`,
+            phoneData,
+        );
+        return res.data;
+    } catch (error) {
+        console.error("Error creating new phone number:", error);
+        throw error;
+    }
+};
+
+const getPhoneNumbersFromDB = async () => {
+    try {
+      const res = await axios.get(`${LOCAL_BACKEND_URL}/phone/db/phone_numbers`);
+      return res.data;
+    } catch (error) {
+      console.error("Error fetching phone numbers from DB:", error);
+      throw error;
+    }
+  };
+
 export {
     getOwnedPhoneNumbers,
     getAvailablePhoneNumbers,
     getAccountBalance,
+    createNewPhoneNumber,
+    getPhoneNumbersFromDB,
     getRecords,
     createRecord,
     getAccessCodes,

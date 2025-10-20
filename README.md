@@ -25,6 +25,8 @@ Backend Setup
 1. go inside "backend" directory
 2. run "npm install"
 3. run "npm install nodemon --save-dev"
-4. add backend .env file
-5. run "npm run dev"  (this is to ONLY start the backend in port 3500)
+4. run "npm uninstall axios"
+5. run "npm install axios@0.27"
+6. add backend .env file
+7. run "npm run dev"  (this is to ONLY start the backend in port 3500)
 
