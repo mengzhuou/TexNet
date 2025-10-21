@@ -1,0 +1,181 @@
+/* Main layout */
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    background: #f5f7f9;
+}
+  
+.sidebar {
+    width: 30%;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    background: white;
+}
+  
+.header {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    h3 {
+      font-size: 18px;
+      margin: 0;
+      color: #268c91;
+    }
+  
+    select {
+      padding: 5px;
+      font-size: 14px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+}
+  
+.phoneList {
+    overflow-y: auto;
+    flex-grow: 1;
+}
+  
+.phoneItem {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background 0.2s ease;
+  
+    &:hover {
+      background: #eef7f7;
+    }
+  
+    &.active {
+      background: #d9f3f3;
+      border-left: 4px solid #268c91;
+    }
+}
+  
+.phoneNumber {
+    font-weight: bold;
+}
+  
+.lastMsg {
+    color: gray;
+    font-size: 13px;
+}
+  
+.time {
+    font-size: 12px;
+    color: #aaa;
+}
+  
+.chatSection {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    background: #f9fbfc;
+}
+  
+.chatHeader {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    color: #268c91;
+}
+  
+.circleAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #666;
+}
+  
+.chatPhone {
+    font-size: 18px;
+}
+  
+.chatBody {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+  
+.userMessage,
+  .myMessage {
+    max-width: 50%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    margin-bottom: 20px;
+    position: relative;
+  
+    p {
+      margin: 0;
+    }
+  
+    .msgTime {
+      display: block;
+      font-size: 11px;
+      margin-top: 5px;
+      color: gray;
+      text-align: right;
+    }
+}
+  
+.userMessage {
+    background: #ffffff;
+    border: 1px solid #ddd;
+}
+  
+.myMessage {
+    background: #dff7ff;
+    margin-left: auto;
+    border: 1px solid #b5e2f3;
+}
+  
+.chatFooter {
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    gap: 10px;
+    background: white;
+}
+  
+.senderSelect {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+  
+.inputBox {
+    flex-grow: 1;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+  
+.sendBtn {
+    background: #268c91;
+    border: none;
+    color: white;
+    font-size: 18px;
+    width: 40px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: 0.2s;
+  
+    &:hover {
+      background: #1b6d70;
+    }
+}
+  

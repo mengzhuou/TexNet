@@ -4,6 +4,7 @@ import MainPage from "./components/Pages/MainPage/MainPage";
 import LeftNavBar from "./components/Functions/LeftNavBar/LeftNavBar";
 import TopNavBar from "./components/Functions/TopNavBar/TopNavBar";
 import Callflow from './components/Pages/Callflow/Callflow';
+import CallMessage from './components/Pages/CallMessage/CallMessage';
 import "./App.css";
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
                 <Route path="/" element={<MainPage />} />
                 <Route path="/MainPage" element={<MainPage />} />
                 <Route path="/callflow" element={<Callflow />} />
+                <Route path="/call_message" element={<CallMessage />} />
               </Routes>
             </div>
             </div>

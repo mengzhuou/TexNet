@@ -7,16 +7,10 @@ class Callflow extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            allPhoneNumbers: JSON.parse(localStorage.getItem("telnyx_owned_numbers")) || [],
+            ownedPhoneNumbers: JSON.parse(localStorage.getItem("telnyx_owned_numbers")) || [],
             phoneNumbers: JSON.parse(localStorage.getItem("telnyx_owned_numbers")) || [],
             searchTerm: ""
         };
-    }
-
-    async componentDidMount() {
-        if (!localStorage.getItem("telnyx_owned_numbers")) {
-            await this.fetchOwnedNumbers();
-        }
     }
 
     fetchOwnedNumbers = async () => {
@@ -24,19 +18,24 @@ class Callflow extends Component {
             const response = await getOwnedPhoneNumbers();
             const numbers = response.data || [];
 
-            this.setState({ allPhoneNumbers: numbers, phoneNumbers: numbers });
+            this.setState({ ownedPhoneNumbers: numbers, phoneNumbers: numbers });
             localStorage.setItem("telnyx_owned_numbers", JSON.stringify(numbers));
-
         } catch (error) {
             console.error("Error fetching owned Telnyx numbers:", error);
         }
     };
 
+    async componentDidMount() {
+        if (!localStorage.getItem("telnyx_owned_numbers")) {
+            await this.fetchOwnedNumbers();
+        }
+    }
+
     handleSearch = (searchTerm) => {
         this.setState({ searchTerm });
 
-        const { allPhoneNumbers } = this.state;
-        const filtered = allPhoneNumbers.filter(num =>
+        const { ownedPhoneNumbers } = this.state;
+        const filtered = ownedPhoneNumbers.filter(num =>
             num.phone_number?.toLowerCase().includes(searchTerm.toLowerCase())
         );
 
@@ -63,6 +62,8 @@ class Callflow extends Component {
                                 <th>Name</th>
                                 <th>Press Key</th>
                                 <th>Assign To</th>
+                                <th>Status</th>
+                                <th>Create at</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -78,6 +79,8 @@ class Callflow extends Component {
                                         <td>{num.connection_name || ""}</td>
                                         <td>{num.external_pin || ""}</td>
                                         <td>{num.messaging_profile_name || ""}</td>
+                                        <td>{num.status || ""}</td>
+                                        <td>{num.created_at || ""}</td>
                                     </tr>
                                 ))
                             )}
