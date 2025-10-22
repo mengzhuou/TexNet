@@ -1,0 +1,93 @@
+.container {
+  padding: 20px;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+}
+
+.refreshIcon {
+  font-size: 20px;
+  cursor: pointer;
+  color: #268c91;
+}
+
+.agentListTitle {
+  font-size: 18px;
+  margin: 20px 0 10px 0;
+  font-weight: 500;
+  color: #444;
+}
+
+.userGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 30px;
+  margin-top: 10px;
+}
+
+.userCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userIcon {
+  width: 60px;
+  height: 60px;
+  background-color: #0d1b3e;
+  -webkit-mask: url("https://www.svgrepo.com/show/382105/user.svg") center / contain no-repeat;
+  mask: url("https://www.svgrepo.com/show/382105/user.svg") center / contain no-repeat;
+}
+
+.userInfo {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.statusDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  right: 40%;
+}
+
+.online {
+  background-color: #c5ff3b;
+}
+
+.offline {
+  background-color: gray;
+}
+
+.userCardAdd {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.addUserIcon {
+  width: 60px;
+  height: 60px;
+  background-color: #0a7b83;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: white;
+}

@@ -1,0 +1,89 @@
+.smsHistoryContainer {
+  padding: 20px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #333;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #268c91;
+  margin-bottom: 20px;
+}
+
+.dateSelector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+
+  label {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+
+  th {
+    background-color: #7a878b;
+    color: white;
+    padding: 10px;
+    font-weight: 500;
+    text-align: left;
+  }
+
+  td {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f8f8f8;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.exportBtn {
+  padding: 8px 15px;
+  color: #268c91;
+  border: 1px solid #268c91;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #dff4f4;
+  }
+}
+
+.pagination {
+  display: flex;
+  gap: 5px;
+
+  button {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+  }
+
+  .active {
+    background-color: #268c91;
+    color: white;
+  }
+}

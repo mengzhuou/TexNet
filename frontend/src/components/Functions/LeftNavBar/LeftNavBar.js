@@ -13,7 +13,13 @@ class LeftNavBar extends Component {
                 <ul className="sideNavList">
                     <li className="sideNavItem">
                         <NavButton className="sideNavButton" path="/callflow" text="Callflow" />
-                        <NavButton className="sideNavButton" path="/call_message" text="Call/Message" />
+                        <NavButton className="sideNavButton" path="/profile" text="Profile" />
+                        <NavButton className="sideNavButton" path="/chatHistory" text="Chat History" />
+                        <NavButton className="sideNavButton" path="/smsHistory" text="SMS History" />
+                        <NavButton className="sideNavButton" path="/contactManagement" text="Contact Management" />
+                        <NavButton className="sideNavButton" path="/users" text="Users" />
+                        <NavButton className="sideNavButton" path="/messageEngine" text="Message Engine" />
+                        <NavButton className="sideNavButton" path="/callMessage" text="Call/Message" />
                     </li>
                 </ul>
             </div>
