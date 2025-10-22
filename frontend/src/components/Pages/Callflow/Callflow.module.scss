@@ -1,38 +1,37 @@
+@use "../../../common/css/font.scss";
+
 .callflowContainer {
-    margin-top: -50px;
-    width: 100%;  
-    // margin: 0;        
+    margin-top: -4rem;
+    width: 100%;
     padding: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
+    @extend %font-family;
     color: #333;
-    text-align: left; 
+    text-align: left;
     box-sizing: border-box;
 }
 
 .searchSection {
     display: flex;
-    justify-content: flex-start; 
+    justify-content: flex-start;
     align-items: baseline;
-    gap: 1rem;                 
-    margin-bottom: 1rem;
+    gap: 1rem;
 }
 
 .searchSection input {
-    width: 250px;
+    width: 16rem;
     padding: 0.5rem 0.75rem;
-    font-size: 0.95rem;
+    font-size: 1rem;
 }
 
 .searchSection .chooseBtn {
     background-color: hsl(17, 82%, 51%);
     color: #fff;
     border: none;
-    border-radius: 4px;
-    padding: 0.6rem 1rem;
+    padding: 0.65rem 1rem;
     font-size: 0.9rem;
     cursor: pointer;
     transition: 0.2s ease-in-out;
-    margin-right: 0.5rem;
+    margin-right: 2rem;
 }
 
 .searchSection .chooseBtn:hover {
@@ -40,26 +39,26 @@
 }
 
 h2 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: #268c91;
     text-align: left;
     margin: 0;
 }
 
-.tableSection {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    margin: 0; 
-}
+// .tableSection {
+//     background-color: #fff;
+//     border-radius: 0.5rem; /* 8px */
+//     box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1); /* 2px 6px */
+//     padding: 1rem;
+//     margin: 0;
+// }
 
 .numberTable {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
-    font-size: 0.95rem;
-    margin: 0; 
+    font-size: 1rem;
+    margin: 0;
 }
 
 .numberTable thead {
@@ -71,7 +70,7 @@ h2 {
 .numberTable th,
 .numberTable td {
     padding: 0.75rem 1rem;
-    border: 1px solid #e1e1e1;
+    border: 0.1rem solid #e1e1e1; 
 }
 
 .numberTable tbody tr:nth-child(even) {
@@ -84,11 +83,10 @@ h2 {
 
 .addNumberBtn {
     margin-top: 1rem;
-    display: inline-block;   
+    display: inline-block;
     background-color: #505b5e;
     color: white;
     border: none;
-    border-radius: 4px;
     padding: 0.6rem 1rem;
     font-size: 0.95rem;
     cursor: pointer;

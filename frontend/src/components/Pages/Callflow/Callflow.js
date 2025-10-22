@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { getOwnedPhoneNumbers } from "../../../connector.js";
 import UniversalSearch from "../../UniversalSearch.js";
+import AgGridTable from "../../Functions/Table/AgGridTable/AgGridTable.js";
 import styles from "./Callflow.module.scss";
 
 class Callflow extends Component {
@@ -9,7 +10,19 @@ class Callflow extends Component {
     this.state = {
       allPhoneNumbers: JSON.parse(localStorage.getItem("telnyx_owned_numbers")) || [],
       phoneNumbers: JSON.parse(localStorage.getItem("telnyx_owned_numbers")) || [],
-      searchTerm: ""
+      searchTerm: "",
+      columnDefs: [
+        { headerName: "#", valueGetter: "node.rowIndex + 1", width: 80 },
+        { headerName: "Phone Number", field: "phone_number", flex: 1 },
+        { headerName: "Name", field: "connection_name", flex: 1 },
+        { headerName: "Press Key", field: "external_pin", flex: 1 },
+        { headerName: "Assign To", field: "messaging_profile_name", flex: 1 }
+      ],
+      defaultColDef: {
+        sortable: true,
+        filter: true,
+        resizable: true
+      }
     };
   }
 
@@ -40,46 +53,27 @@ class Callflow extends Component {
   };
 
   render() {
-    const { phoneNumbers } = this.state;
+    const { phoneNumbers, columnDefs, defaultColDef } = this.state;
 
     return (
       <div className={styles.callflowContainer}>
-         <h2>Callflow</h2>
-         <div className={styles.searchSection}>
+        <h2>Callflow</h2>
+
+        <div className={styles.searchSection}>
           <UniversalSearch onSearch={this.handleSearch} />
           <button className={styles.chooseBtn}>Choose</button>
         </div>
 
-
         <div className={styles.tableSection}>
-          <table className={styles.numberTable}>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Phone Number</th>
-                <th>Name</th>
-                <th>Press Key</th>
-                <th>Assign To</th>
-              </tr>
-            </thead>
-            <tbody>
-              {phoneNumbers.length === 0 ? (
-                <tr>
-                  <td colSpan="5" style={{ textAlign: "center" }}>No data found.</td>
-                </tr>
-              ) : (
-                phoneNumbers.map((num, index) => (
-                  <tr key={index}>
-                    <td>{index + 1}</td>
-                    <td>{num.phone_number}</td>
-                    <td>{num.connection_name || ""}</td>
-                    <td>{num.external_pin || ""}</td>
-                    <td>{num.messaging_profile_name || ""}</td>
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </table>
+          <AgGridTable
+            rowData={phoneNumbers}
+            columnDefs={columnDefs}
+            defaultColDef={defaultColDef}
+            domLayout="autoHeight"
+            suppressHorizontalScroll={true}
+            onGridReady={(params) => (this.gridApi = params.api)}
+            onSelectionChanged={() => console.log("Row selected")}
+          />
         </div>
 
         <button className={styles.addNumberBtn}>Add a New Number</button>

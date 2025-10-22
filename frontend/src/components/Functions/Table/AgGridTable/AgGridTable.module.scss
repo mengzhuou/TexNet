@@ -1,0 +1,94 @@
+@use "../../../../common/css/font.scss";
+html {
+  overflow: hidden;
+}
+
+.agBody {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+  justify-content: flex-start; 
+  background-color: white;
+}
+
+.pageContainer {
+  width: 90vw;
+  height: auto;
+  overflow-y: visible;
+  padding-right: 2rem; 
+  box-sizing: border-box; 
+}
+
+:global {
+  .ag-root-wrapper {
+    border: transparent;
+  }
+
+  .ag-root-wrapper.ag-layout-normal {
+    border: none;
+    overflow-y: auto;
+  }
+
+  .ag-header, .ag-advanced-filter-header {
+    background-color: gray;
+    border-top: 0.1rem solid gray;
+    border-bottom: 0.1rem solid gray;
+  }
+
+  .ag-row {
+    border-bottom: 0.2 solid gray;
+  }
+
+  .ag-header-cell-resize::after {
+    background-color: transparent;
+  }
+
+  .ag-header-group-cell-label,
+  .ag-cell-label-container {
+    font-size: 1.5rem;
+    @extend %font-family;
+    color: white;
+  }
+
+  .ag-center-cols-viewport {
+    background-color: white;
+  }
+
+  .ag-paging-page-size {
+    display: none;
+  }
+
+  .ag-paging-panel {
+    background-color: white;
+    color: #2eb1c0;
+    border-top: transparent;
+    font-size: 1rem;
+  }
+
+  .ag-icon {
+    color: #2eb1c0;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  .ag-body .ag-theme-alpine {
+    max-height: 2rem;
+    overflow-y: scroll;
+  }
+
+  .ag-body .ag-theme-alpine::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
+
+  @media (max-width: 48rem) {
+    .ag-header-group-cell-label,
+    .ag-cell-label-container {
+      font-size: 0.6rem;
+    }
+
+    .page-container {
+      width: 98vw;
+    }
+  }
+}

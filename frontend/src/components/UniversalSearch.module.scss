@@ -1,0 +1,38 @@
+.universalSearchContainer {
+    border: 0.125rem solid gray;
+    background-color: #fff;
+    width: 100%;
+    margin-top: 2%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .universalSearchInput {
+    flex: 1;
+    border: none;
+    padding: 0.5rem 0 0.5rem 0.5rem;
+    outline: none;
+    font-size: 1rem;
+  }
+  
+  .universalSearchInput::placeholder {
+    color: #A9A9A9;
+    font-family: 'Montagu Slab', serif;
+    font-weight: normal;
+  }
+  
+  .universalSearchButton {
+    background: none;
+    border: none;
+    font-size: 0.9375rem;
+    color: gray;
+    padding: 0.9375rem 0.625rem;
+  }
+  
+  @media (max-width: 48rem) { /* 768px = 48rem */
+    .universalSearchContainer {
+      margin-left: 1%;
+      width: 12.5rem;
+    }
+  }
+  
