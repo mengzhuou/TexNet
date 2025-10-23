@@ -1,31 +1,34 @@
-.content-layout {
-  display: flex;
-  flex: 1;
-  height: 90%; /* 10% reserved for top bar */
-}
-
-.main-content {
-  width: 80%; /* 20% reserved for left nav */
-  height: 100%;
-  overflow-y: auto;
-  background-color: #f9f9f9;
-  padding: 20px;
-}
-
-/* Navbar dimensions */
-.topNavBar {
-  height: 10%;
+.app-layout {
+  display: grid;
+  /* left - right */
+  grid-template-columns: 16% 84%;
+  /* top - bottom */
+  grid-template-rows: 7% 93%;
+  height: 100vh;
   width: 100%;
+}
+
+.topNavBar {
+  /* Spans both left and right */
+  grid-column: 1 / span 2;
+  grid-row: 1 / 2;
   background-color: #CB997E;
+  z-index: 2;
 }
 
 .leftNavBar {
-  width: 20%;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  background-color: #DDBEA9;
   height: 100%;
-  background-color: #CB997E;
+  overflow-y: auto;
 }
 
-.right-section {
-  width: 90%;
-  padding-top: 10%;
+.main-content {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  overflow: hidden;
+  padding: 2rem;
 }

@@ -56,23 +56,6 @@
   color: #333;
 }
 
-.statusDot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  position: absolute;
-  bottom: 0;
-  right: 40%;
-}
-
-.online {
-  background-color: #c5ff3b;
-}
-
-.offline {
-  background-color: gray;
-}
-
 .userCardAdd {
   display: flex;
   flex-direction: column;

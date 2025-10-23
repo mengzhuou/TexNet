@@ -1,13 +1,8 @@
 @use "../../../common/css/font.scss";
 
 .callflowContainer {
-    margin-top: -4rem;
-    width: 100%;
-    padding: 0;
     @extend %font-family;
     color: #333;
-    text-align: left;
-    box-sizing: border-box;
 }
 
 .searchSection {
@@ -88,3 +83,4 @@ h2 {
 .addNumberBtn:hover {
     background-color: #3e474a;
 }
+

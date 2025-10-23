@@ -19,10 +19,10 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="app-layout">
           <TopNavBar />
           <LeftNavBar />
-          <div className="content-layout">
+          <div className="main-content">
             <Routes>
               <Route path="/" element={<MainPage />} />
               <Route path="/MainPage" element={<MainPage />} />
