@@ -21,25 +21,21 @@ class App extends Component {
       <Router>
         <div>
           <TopNavBar />
+          <LeftNavBar />
           <div className="content-layout">
-            <div className="left-section">
-              <LeftNavBar />
-            </div>
-            <div className="right-section">
-              <Routes>
-                <Route path="/" element={<MainPage />} />
-                <Route path="/MainPage" element={<MainPage />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="/chatHistory" element={<ChatHistory />} />
-                <Route path="/smsHistory" element={<SmsHistory />} />
-                <Route path="/contactManagement" element={<ContactManagement />} />
-                <Route path="/users" element={<Users />} />
-                <Route path="/messageEngine" element={<MessageEngine />} />
-                <Route path="/callflow" element={<Callflow />} />
-                <Route path="/callMessage" element={<CallMessage />} />
-              </Routes>
-            </div>
-            </div>
+            <Routes>
+              <Route path="/" element={<MainPage />} />
+              <Route path="/MainPage" element={<MainPage />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/chatHistory" element={<ChatHistory />} />
+              <Route path="/smsHistory" element={<SmsHistory />} />
+              <Route path="/contactManagement" element={<ContactManagement />} />
+              <Route path="/users" element={<Users />} />
+              <Route path="/messageEngine" element={<MessageEngine />} />
+              <Route path="/callflow" element={<Callflow />} />
+              <Route path="/callMessage" element={<CallMessage />} />
+            </Routes>
+          </div>
         </div>
       </Router>
     );

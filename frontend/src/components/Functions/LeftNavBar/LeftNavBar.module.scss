@@ -2,12 +2,12 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: #CB997E;
+    background-color: gray;
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
-    padding-top: 20px;
+    padding-top: 1.25rem;
     z-index: 3;
 }
 
@@ -22,26 +22,19 @@
 
 .sideNavItem {
     width: 100%;
+    margin-top: 30%;
 }
 
 .sideNavButton {
     display: block;
     width: 100%;
     text-align: left;
-    padding: 12px 20px;
-    font-size: 18px;
-    color: #FFFFFF;
+    padding: 1.5rem 1.5rem;
+    font-size: 1.5rem;
+    color: #ffffff;
     background-color: transparent;
     border: none;
     cursor: pointer;
     text-decoration: none;
     transition: background-color 0.3s;
-}
-
-.sideNavButton:hover {
-    background-color: #b07b63;
-}
-
-.sideNavButton:active {
-    background-color: #a06d56;
 }
