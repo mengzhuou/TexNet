@@ -1,9 +1,13 @@
 import React, { Component } from "react";
-import { withFuncProps } from "../../withFuncProps";
+import { withFuncProps } from "../withFuncProps";
 import NavButton from "../../Button/NavButton/NavButton";
 import styles from "./LeftNavBar.module.scss";
 
 class LeftNavBar extends Component {
+  handleLogout = () => {
+    localStorage.removeItem("authToken");
+    this.props.navigate("/");
+  };
   render() {
     if (window.location.pathname === "/") {
       return <div className={styles.sideNavBar}></div>;
@@ -21,6 +25,10 @@ class LeftNavBar extends Component {
             <NavButton className={styles.sideNavButton} path="/callflow" text="Callflow" />
             <NavButton className={styles.sideNavButton} path="/messageEngine" text="Message Engine" />
             <NavButton className={styles.sideNavButton} path="/callMessage" text="Call/Message" />
+
+            <button className={styles.logoutBtn} onClick={this.handleLogout}>
+              Logout
+            </button>
           </li>
         </ul>
       </div>

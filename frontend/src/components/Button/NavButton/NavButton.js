@@ -1,4 +1,4 @@
-import { withFuncProps } from "../../withFuncProps";
+import { withFuncProps } from "../../Functions/withFuncProps";
 import './NavButton.css';
 
 function NavButton({ className, path, text, navigate }) {

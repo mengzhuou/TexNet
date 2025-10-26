@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { getOwnedPhoneNumbers } from "../../../connector.js";
-import UniversalSearch from "../../UniversalSearch.js";
+import UniversalSearch from "../../Functions/UniversalSearch/UniversalSearch.js";
 import AgGridTable from "../../Functions/Table/AgGridTable/AgGridTable.js";
 import styles from "./Callflow.module.scss";
 

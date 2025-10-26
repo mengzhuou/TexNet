@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withFuncProps } from "../../withFuncProps";
+import { withFuncProps } from "../../Functions/withFuncProps";
 import styles from "./MessageEngine.module.scss";
 import { useNavigate } from "react-router-dom";
 

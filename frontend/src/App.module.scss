@@ -1,4 +1,4 @@
-.app-layout {
+.appLayout {
   display: grid;
   /* left - right */
   grid-template-columns: 16% 84%;
@@ -24,7 +24,7 @@
   overflow-y: auto;
 }
 
-.main-content {
+.mainContent {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
   background-color: #f9f9f9;

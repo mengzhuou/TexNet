@@ -9,7 +9,6 @@
     top: 0; 
     width: 100%;
     min-height: 70px;
-    z-index: 4;
 }
   
 .navBar-left {
@@ -37,6 +36,7 @@
     white-space: nowrap;
     text-align: center;
     color: white;
+    cursor: pointer;
     text-shadow: 0px 4px 4px rgba(0,0,0,0.5);
     -webkit-text-stroke-width: clamp(1px, 0.3vw, 2px);
     background-color: transparent;

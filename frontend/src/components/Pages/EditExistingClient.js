@@ -53,7 +53,7 @@ const EditExistingClient = () => {
             setAdditionalNote(row.additionalNote || '');
         } else {
             console.error("No data found");
-            navigate('/MainPage'); // Redirect to main page if no data is found
+            navigate('/mainPage'); // Redirect to main page if no data is found
         }
     }, [location.state, navigate]);
 
@@ -151,7 +151,7 @@ const EditExistingClient = () => {
                         await deleteDraft(row._id);
                     }
                 resetFields();
-                navigate('/MainPage'); // redirects to home page
+                navigate('/mainPage'); // redirects to home page
             } catch (error) {
                 console.error('Error editing client: ', error);
             }
@@ -172,7 +172,7 @@ const EditExistingClient = () => {
         if (recordToDelete) {
             try {
                 await deleteRecord(recordToDelete); // Call the delete API
-                navigate('/MainPage'); // Navigate to the main page
+                navigate('/mainPage'); // Navigate to the main page
             } catch (error) {
                 console.error("Error deleting record:", error);
             }

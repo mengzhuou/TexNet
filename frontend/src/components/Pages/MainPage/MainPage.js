@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withFuncProps } from "../../withFuncProps";
+import { withFuncProps } from "../../Functions/withFuncProps.js";
 import styles from "./MainPage.module.scss";
 import { useNavigate } from "react-router-dom";
 import {
@@ -30,7 +30,6 @@ class MainPage extends Component {
 
     async componentDidMount() {
         if (localStorage.getItem("telnyx_balance")) {
-          console.log("Loaded balance from cache");
           return;
         }
       

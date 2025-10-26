@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withFuncProps } from "../../withFuncProps";
+import { withFuncProps } from "../withFuncProps";
 import NavButton from "../../Button/NavButton/NavButton";
 import styles from "./TopNavBar.module.scss";
 
@@ -74,7 +74,7 @@ class TopNavBar extends Component {
         <div className={styles.navBarLeft}>
           <NavButton
             className={styles.navTitle}
-            path="/MainPage"
+            path="/mainPage"
             text="TEXNET"
           />
         </div>

@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { setUserInfo } from '../../redux/actions/userActions';
 import { loginSuccess } from '../../redux/reducers/authSlice';
 
-const Login = () => {
+const Login = ({ onLoginSuccess }) => {
     const [formData, setFormData] = useState({ username: '', password: '' });
     const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();
@@ -15,7 +15,6 @@ const Login = () => {
     const validateInput = () => {
         if (!formData.username.trim()) return "Please enter a username.";
         if (!formData.password.trim()) return "Please enter a password.";
-        if (formData.password.length < 6) return "Password must be at least 6 characters.";
         return null;
     };
 
@@ -32,9 +31,7 @@ const Login = () => {
         }
 
         try {
-            console.log("formData: ", formData);
             const response = await loginUser(formData.username, formData.password);
-            console.log("response: ", response);
             localStorage.setItem('authToken', response.token);
 
             dispatch(setUserInfo({
@@ -55,10 +52,11 @@ const Login = () => {
                     postalCode: ''
                 }
             }));
-
             dispatch(loginSuccess());
 
-            navigate('/MainPage');
+            if (onLoginSuccess) onLoginSuccess();  // ✅ Tell App.js we’re authenticated
+
+            navigate("/mainPage"); // ✅ Redirect after login
         } catch (error) {
             console.error(error);
             setErrorMessage(error.response?.data?.message || 'Login failed, please check your credentials.');
@@ -87,7 +85,9 @@ const Login = () => {
                     onChange={handleInputChange}
                     placeholder="Password"
                 />
-                <button className={styles["login-submit-button"]} onClick={handleSubmit}>
+                <button
+                    className={styles["login-submit-button"]}
+                    onClick={handleSubmit}>
                     Login
                 </button>
             </div>

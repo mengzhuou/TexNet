@@ -5,7 +5,6 @@ import { setUserInfo } from '../redux/actions/userActions';
 
 const TokenVerification = () => {
     const dispatch = useDispatch();
-
     useEffect(() => {
         const token = localStorage.getItem('authToken');
         if (token) {

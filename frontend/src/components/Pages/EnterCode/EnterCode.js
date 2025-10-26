@@ -30,7 +30,7 @@ const EnterCode = () => {
     const isValidCode = accessCodes.some((codeObj) => codeObj.code === enterCode);
 
     if (isValidCode) {
-      navigate('/MainPage');
+      navigate('/mainPage');
     } else {
       setErrorMessage('Please enter a valid code');
     }
