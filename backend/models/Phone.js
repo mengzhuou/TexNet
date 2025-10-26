@@ -52,4 +52,4 @@ const phoneSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Phones", phoneSchema);
+module.exports = mongoose.model("Phone", phoneSchema);

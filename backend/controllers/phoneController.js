@@ -1,4 +1,4 @@
-const Phone = require("../models/Phones");
+const Phone = require("../models/Phone");
 const asyncHandler = require("express-async-handler");
 const axios = require("axios");
 

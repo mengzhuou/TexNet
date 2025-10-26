@@ -22,6 +22,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use('/', express.static(path.join(__dirname, '/public')));
 app.use("/", require("./routes/root"));
+app.use("/user", require("./routes/userRoutes"));
 app.use("/phone", require("./routes/phoneRoutes"));
 app.use(errorHandler);
 
