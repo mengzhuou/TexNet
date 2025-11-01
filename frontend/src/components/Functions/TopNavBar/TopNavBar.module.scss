@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #2eb1c0;   
+    background-color: #32A2B0;   
     position: fixed;
     top: 0; 
     width: 100%;
@@ -32,16 +32,16 @@
 
 .navTitle {
     @extend %font-family;
+    // font-family: 'Open Sans', sans-serif;
     font-size: clamp(1.5rem, 3vw, 2rem);
-    font-weight: 300;
     white-space: nowrap;
     text-align: center;
     color: white;
     text-shadow: 0px 4px 4px rgba(0,0,0,0.5);
-    -webkit-text-stroke-width: clamp(1px, 0.3vw, 2px);
+    // -webkit-text-stroke-width: clamp(1px, 0.3vw, 2px);
     background-color: transparent;
     border: none;
-    margin-left: 19rem;
+    margin-left: 17rem;
 }
 
 .nav-list {

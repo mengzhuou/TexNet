@@ -1,4 +1,5 @@
 @use "../../../common/css/index.scss" as *;
+@use "../../../common/css/font.scss";
 
 .record-table-section {
     @extend %mar-t-24;
@@ -14,14 +15,15 @@
     font-family: "Segoe UI", Arial, sans-serif;
 }
 .mainPageContainer {
-    @extend %bg-ffffff;
+    // @extend %bg-ffffff;
+    @extend %font-family;
     width: 100%;
-    padding: 30px 40px;
+    padding: 20px 20px;
     text-align: center;
 }
 
 .pageTitle {
-    font-size: 22px;
+    font-size: 32px;
     color: hsl(182, 53%, 53%);
     text-align: left;
     margin-bottom: 20px;

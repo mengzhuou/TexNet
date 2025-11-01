@@ -2,13 +2,13 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    background-color: gray;
+    background-color: #5A686A;
     position: fixed;
     top: 0;
     left: 0;
     height: 100%;
-    padding-top: 1.25rem;
-    z-index: 3;
+    // padding-top: 1rem;
+    z-index: 4;
 }
 
 .sideNavList {
@@ -30,7 +30,7 @@
     width: 100%;
     text-align: left;
     padding: 1rem 1rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #ffffff;
     background-color: transparent;
     border: none;

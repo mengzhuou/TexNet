@@ -75,7 +75,7 @@ class TopNavBar extends Component {
           <NavButton
             className={styles.navTitle}
             path="/MainPage"
-            text="TEXNET"
+            text="T e x N e x"
           />
         </div>
       </div>
