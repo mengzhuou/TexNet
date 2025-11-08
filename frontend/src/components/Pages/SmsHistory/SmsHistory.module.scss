@@ -1,3 +1,5 @@
+@use "../../../common/css/font.scss";
+
 .smsHistoryContainer {
   padding: 20px;
   font-family: "Segoe UI", Arial, sans-serif;
@@ -5,10 +7,11 @@
 }
 
 .title {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 600;
-  color: #268c91;
-  margin-bottom: 20px;
+  @extend %font-color;
+  margin-bottom: 10px;
+  margin-top:0px;
 }
 
 .dateSelector {
@@ -18,14 +21,18 @@
   margin-bottom: 15px;
 
   label {
-    font-size: 16px;
+    font-size: 24px;
     font-weight: 500;
+    color: #728082;
   }
 
   input {
+    font-size: 16px;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    width: 10rem;
+    color: #728082;
   }
 }
 
@@ -33,6 +40,7 @@
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
+  color:#728082;
 
   th {
     background-color: #7a878b;
@@ -60,7 +68,8 @@
 
 .exportBtn {
   padding: 8px 15px;
-  color: #268c91;
+  @extend %font-color;
+  font-weight: 700;
   border: 1px solid #268c91;
   background-color: white;
   border-radius: 4px;
@@ -71,6 +80,7 @@
   }
 }
 
+
 .pagination {
   display: flex;
   gap: 5px;
@@ -79,11 +89,12 @@
     padding: 5px 10px;
     border: 1px solid #ccc;
     background: white;
+    color:hsl(182, 53%, 53%);
+    font-weight: 700;
     cursor: pointer;
   }
 
   .active {
-    background-color: #268c91;
-    color: white;
+    background-color: #d4d4d4;
   }
 }
